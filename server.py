@@ -64,7 +64,7 @@ async def list_opensearch_indices(ctx: Context) -> str:
 
 # Example tool to query MongoDB collection
 @mcp.tool()
-async def query_mongodb(collection: str, query: str, limit: int = 100, ctx: Context) -> str:
+async def query_mongodb(collection: str, query: str, ctx: Context, limit: int = 100) -> str:
     """
     Query a MongoDB collection with a read-only filter query.
     
@@ -101,9 +101,10 @@ async def query_mongodb(collection: str, query: str, limit: int = 100, ctx: Cont
         return f"Error executing query: {str(e)}"
 
 
+
 # Example tool to search OpenSearch
 @mcp.tool()
-async def search_opensearch(index: str, query: str, size: int = 100, ctx: Context) -> str:
+async def search_opensearch(index: str, query: str, ctx: Context, size: int = 100) -> str:
     """
     Search an OpenSearch index.
     
